@@ -2,7 +2,7 @@ export CLICOLOR=1
 
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-export PATH="/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+export PATH="/usr/local/sbin:/usr/local/mysql/bin:/usr/local/heroku/bin:/usr/local/scripts:$PATH"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 

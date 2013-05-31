@@ -78,8 +78,16 @@ fi
 
 chflags nohidden ~/Library/
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export CLICOLOR=1
 
+export LSCOLORS=GxFxCxDxBxegedabagaced
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# Heroku Toolbelt, RVM, MySQL, my scripts, etc.
+export PATH="/usr/local/sbin:/usr/local/mysql/bin:/usr/local/heroku/bin:/usr/local/scripts:$HOME/.rvm/bin:$PATH"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# For virtualenvwrapper
+export WORKON_HOME="~/Envs"
+mkdir -p $WORKON_HOME
+source /usr/local/bin/virtualenvwrapper.sh
