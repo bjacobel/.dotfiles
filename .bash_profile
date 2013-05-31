@@ -1,16 +1,3 @@
-export CLICOLOR=1
-
-export LSCOLORS=GxFxCxDxBxegedabagaced
-
-export PATH="/usr/local/sbin:/usr/local/mysql/bin:/usr/local/heroku/bin:/usr/local/scripts:$PATH"
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-# For virtualenvwrapper
-export WORKON_HOME="~/Envs"
-mkdir -p $WORKON_HOME
-source /usr/local/bin/virtualenvwrapper.sh
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -19,3 +6,12 @@ source /usr/local/bin/virtualenvwrapper.sh
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+
+# Sourcing .bashrc so that I can put stuff there instead of here
+
+if [ -f ~/.bashrc ]; then
+   source ~/.bashrc
+fi
+
+# HEAR THAT? DON'T PUT ANY MORE STUFF IN HERE! 
