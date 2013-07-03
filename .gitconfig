@@ -1,6 +1,6 @@
 [user]
 	name = Brian Jacobel
-	email = bjacobel@bowdoin.edu
+	email = bjacobel@theatlantic.com
 [core]
 	editor = emacs -nw
 	excludesfile = /Users/bjacobel/.gitignore_global
@@ -14,3 +14,14 @@
 	co = checkout
 	st = status
 	br = branch
+[diff]
+	tool = sourcetree
+[merge]
+	tool = sourcetree
+[push]
+        default = tracking
+
+[color]
+	diff = true
+	interactive = true
+	status = true

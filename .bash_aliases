@@ -23,18 +23,45 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-alias webdev='sudo php-fpm && sudo nginx'
-
 alias fucking='sudo'
 
 alias medved='ssh orientweb@medved'
 
-alias sizes='du -h -d 1'
+alias folders='du -h -d 1'
 
 alias django='./manage.py'
 
 alias st='git st'
-alias commit='git commit -m'
-alias addall='git add .'
+alias commit='git commit'
+alias add-all='git add .'
 alias add='git add'
 alias push='git push origin'
+alias timestamp='date +%s | pbcopy'
+
+alias compileflagsgcc='CFLAGS="-O3 -march=core2 -msse4.1 -w -pipe -arch x86_64" CXXFLAGS="-O3 -march=core2 -msse4.1 -w -pipe -arch x86_64" MAKEFLAGS="-j3"'
+
+alias activate='source ./bin/activate'
+
+alias switchenv='deactivate && activate'
+
+alias zip='zip -r9'
+
+# speling is hard
+alias gti='git'
+alias itg='git'
+alias got='git'
+alias fit='git'
+alias tgi='git'
+
+# technically not an alias, but god this helps my workflow
+git() {
+      if [[ $@ == "remind" ]];
+      then
+      	 command git diff-tree --no-commit-id --name-only -r HEAD | more;
+      elif [[ $@ == "fixup" ]];
+      then
+         command git add . && git commit -m "fixup! just a quick fix" && git rebase -i HEAD~2 --autosquash
+      else
+      	 command git "$@";
+      fi;
+}
