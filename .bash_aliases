@@ -58,9 +58,6 @@ git() {
       if [[ $@ == "remind" ]];
       then
       	 command git diff-tree --no-commit-id --name-only -r HEAD | more;
-      elif [[ $@ == "fixup" ]];
-      then
-         command git add . && git commit -m "fixup! just a quick fix" && git rebase -i HEAD~2 --autosquash
       else
       	 command git "$@";
       fi;

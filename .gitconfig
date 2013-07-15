@@ -10,10 +10,6 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[alias]
-	co = checkout
-	st = status
-	br = branch
 [diff]
 	tool = sourcetree
 [merge]
@@ -25,3 +21,10 @@
 	diff = true
 	interactive = true
 	status = true
+[alias]
+    co = checkout
+    st = status
+    br = branch
+    fixup = !sh -c 'git commit --fixup=$1' -
+    squash = !sh -c 'git commit --squash=$1' -
+    rb = rebase --interactive
