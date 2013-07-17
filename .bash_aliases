@@ -53,6 +53,11 @@ alias got='git'
 alias fit='git'
 alias tgi='git'
 
+# intelligent find
+alias ifind='find . -name 2>/dev/null'
+
+alias pycocide="find . -name '*.pyc' -delete"
+
 # technically not an alias, but god this helps my workflow
 git() {
       if [[ $@ == "remind" ]];
