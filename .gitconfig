@@ -25,6 +25,5 @@
     co = checkout
     st = status
     br = branch
-    fixup = !sh -c 'git commit --fixup=$1' -
-    squash = !sh -c 'git commit --squash=$1' -
-    rb = rebase --interactive
+    fixup = !sh -c 'git add . && git commit --fixup=`git rev-parse HEAD` && git rebase -i --autosquash HEAD~2 && git push -f origin `git rev-parse --abbrev-ref HEAD`'
+    rb = rebase
