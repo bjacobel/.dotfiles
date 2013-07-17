@@ -26,4 +26,5 @@
     st = status
     br = branch
     fixup = !sh -c 'git add . && git commit --fixup=`git rev-parse HEAD` && git rebase -i --autosquash HEAD~2 && git push -f origin `git rev-parse --abbrev-ref HEAD`'
+    remind = !sh -c 'git diff-tree --no-commit-id --name-only -r HEAD | more'
     rb = rebase

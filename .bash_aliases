@@ -58,16 +58,6 @@ alias ifind='find . -name 2>/dev/null'
 
 alias pycocide="find . -name '*.pyc' -delete"
 
-# technically not an alias, but god this helps my workflow
-git() {
-      if [[ $@ == "remind" ]];
-      then
-      	 command git diff-tree --no-commit-id --name-only -r HEAD | more;
-      else
-      	 command git "$@";
-      fi;
-}
-
 cpv () {
   tar cf - "$1" |  pv -s $(du -s "$1" | awk '{print $1*1000}' | awk '{printf("%d\n",$0+=$0<0?-0.5:0.5)}') | (cd "$2";tar xf -)
 }
