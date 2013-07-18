@@ -61,3 +61,7 @@ alias pycocide="find . -name '*.pyc' -delete"
 cpv () {
   tar cf - "$1" |  pv -s $(du -s "$1" | awk '{print $1*1000}' | awk '{printf("%d\n",$0+=$0<0?-0.5:0.5)}') | (cd "$2";tar xf -)
 }
+
+replace () {
+  find . -type f | xargs perl -pi -e 's/$1/$2/g'
+}
