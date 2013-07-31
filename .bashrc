@@ -54,7 +54,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1="\[\033[01;34m\]\u@\h\[\033[00m\]:\[\033[01;37m\]\w\[\033[01;31m\] \`ruby -e \"print (%x{git branch 2> /dev/null}.split(%r{\n}).grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`\[\033[00m\]$\[\033[00m\] "
+    PS1="\[\033[01;34m\]\u@\h\[\033[00m\]:\[\033[01;37m\]\w\[\033[01;31m\] \`ruby -e \"print (%x{git branch 2> /dev/null}.split(%r{\n}).grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`\[\033[00m\]$\[\033[00m\]  "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -100,3 +100,9 @@ export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
+
+function _update_ps1() {
+   export PS1="$(powerline-shell.py $?)"
+}
+
+export PROMPT_COMMAND="_update_ps1"

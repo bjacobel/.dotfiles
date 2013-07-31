@@ -30,6 +30,7 @@ alias medved='ssh orientweb@medved'
 alias folders='du -h -d 1'
 
 alias django='./manage.py'
+alias celery='dj celeryd --loglevel=DEBUG --concurrency=1 -n bwj start -B'
 
 alias st='git st'
 alias commit='git commit'
