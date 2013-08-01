@@ -1,6 +1,6 @@
 [user]
 	name = Brian Jacobel
-	email = bjacobel@gmail.com
+	email = bjacobel@theatlantic.com
 [core]
 	editor = emacs -nw
 	excludesfile = /Users/bjacobel/.gitignore_global
@@ -25,7 +25,9 @@
     co = checkout
     st = status
     br = branch
+    rb = rebase
+    lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all
     fixup = !sh -c 'git add . && git commit --fixup=`git rev-parse HEAD` && git rebase -i --autosquash HEAD~2 && git push -f origin `git rev-parse --abbrev-ref HEAD`'
     remind = !sh -c 'git diff-tree --no-commit-id --name-only -r HEAD | more'
-    rb = rebase
+    reopen = !sh -c "true && subl $(pwd) $(git diff-tree --no-commit-id --name-only -r HEAD | cat | tr '\n' ' ' | more)"
     purge = !sh -c "git filter-branch --force --index-filter  'git rm --cached --ignore-unmatch $1' --prune-empty --tag-name-filter cat -- --all"
