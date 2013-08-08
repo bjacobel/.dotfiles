@@ -66,3 +66,6 @@ cpv () {
 replace () {
   find . -type f | xargs perl -pi -e 's/$1/$2/g'
 }
+
+alias ungit="git filter-branch --force --index-filter  'git rm --cached --ignore-unmatch $1' --prune-empty -\
+-tag-name-filter cat -- --all"

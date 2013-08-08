@@ -83,10 +83,7 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # Heroku Toolbelt, RVM, MySQL, my scripts, etc.
-export PATH="/usr/local/sbin:/usr/local/mysql/bin:/usr/local/heroku/bin:~/code/scripts:$HOME/.rvm/bin:/usr/local/share/python:$PATH"
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/heroku/bin:~/code/scripts:/usr/local/share/python:$PATH"
 
 # for virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
@@ -94,8 +91,6 @@ export PROJECT_HOME=$HOME/code
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/share/python/virtualenv
 source /usr/local/share/python/virtualenvwrapper.sh
-
-export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
