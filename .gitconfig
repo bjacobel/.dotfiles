@@ -1,6 +1,6 @@
 [user]
 	name = Brian Jacobel
-	email = bjacobel@theatlantic.com
+	email = bjacobel@gmail.com
 [core]
 	editor = emacs -nw
 	excludesfile = /Users/bjacobel/.gitignore_global
