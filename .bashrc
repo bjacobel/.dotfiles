@@ -89,7 +89,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/hero
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/code
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/share/python/virtualenv
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source /usr/local/share/python/virtualenvwrapper.sh
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
