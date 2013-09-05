@@ -34,6 +34,7 @@ alias folders='du -h -d 1'
 alias django='./manage.py'
 alias celery='dj celeryd --loglevel=DEBUG --concurrency=1 -n `echo $HOSTNAME` start -B'
 alias pycocide="find . -name '*.pyc' -delete"
+alias herokucs='heroku run python manage.py collectstatic --noinput'
 
 # Django development with ghetto virtualenvs
 alias activate='source ./bin/activate'
@@ -75,5 +76,5 @@ replace () {
 
 # COMPLETELY PURGE a file from a git repo, INCLUDING THE WORKING TREE
 ungit () {
-    git filter-branch --force --index-filter  'git rm --cached --ignore-unmatch $1' --prune-empty --tag-name-filter cat -- --all
+    git filter-branch --force --index-filter  'git rm --cached --ignore-unmatch "$1"' --prune-empty --tag-name-filter cat -- --all
 }
