@@ -25,20 +25,8 @@ alias yolo='git add . && git commit -am "YOLO" && git push -f origin master'
 
 # Servers
 alias medved='ssh orientweb@medved'
-alias bearbox='ssh -p 2200 bjacobel.com'
 
-# Only works on OSX
-alias folders='du -h -d 1'
-
-# Django development
-alias django='./manage.py'
-alias celery='dj celeryd --loglevel=DEBUG --concurrency=1 -n `echo $HOSTNAME` start -B'
 alias pycocide="find . -name '*.pyc' -delete"
-alias herokucs='heroku run python manage.py collectstatic --noinput'
-
-# Django development with ghetto virtualenvs
-alias activate='source ./bin/activate'
-alias switchenv='deactivate && activate'
 
 # Git shortcuts
 alias st='git st'
@@ -49,9 +37,6 @@ alias push='git push origin'
 alias timestamp='date +%s | pbcopy'
 
 alias zip='zip -r9'
-
-#Markdown editing
-alias mou="open -a Mou"
 
 # speling is hard
 alias gti='git'
