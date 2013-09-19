@@ -76,6 +76,10 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+if [ -f ./.bash_aliases ]; then
+    . ./.bash_aliases
+fi
+
 export CLICOLOR=1
 
 export LSCOLORS=GxFxCxDxBxegedabagaced
@@ -88,3 +92,6 @@ function _update_ps1() {
 }
 
 export PROMPT_COMMAND="_update_ps1"
+
+# fix wils' magic mouse
+xinput --set-prop 8 "Device Accel Constant Deceleration" 4

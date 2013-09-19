@@ -69,10 +69,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
- '(inhibit-startup-screen nil)
- '(initial-scratch-message' "")
-)
+ '(custom-enabled-themes (quote (tomorrow-night)))
+ '(custom-safe-themes (quote ("0bcc3cee017174dec4f895bc417a9b3fa66748ab504490ae5cba0eaba646c37e" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
+ '(inhibit-startup-screen t)
+ '(initial-scratch-message (quote "")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -130,31 +130,8 @@
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
-(when (eq window-system 'ns)
-    (add-to-list 'load-path "~/.emacs.d/modes/")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
-    (require 'php-mode)
-    (setq c-default-style "linux" c-basic-offset 4)
+(load-theme 'tomorrow-night)
 
-    (require 'web-mode)
-    (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-    (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
-    (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
-    (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-    (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-    (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-    (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-
-    (require 'package)
-    (add-to-list 'package-archives 
-		 '("marmalade" .
-		   "http://marmalade-repo.org/packages/"))
-    (package-initialize)
-
-    (add-to-list 'load-path "~/.emacs.d/color-theme-solarized/")
-    (add-to-list 'custom-theme-load-path "~/.emacs.d/color-theme-solarized")
-    (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-
-    (load-theme 'misterioso t)
-)
-
+(tool-bar-mode -1)
