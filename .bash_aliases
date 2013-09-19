@@ -1,3 +1,4 @@
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -23,9 +24,9 @@ alias l='ls -CF'
 alias fucking='sudo'
 alias yolo='git add . && git commit -am "YOLO" && git push -f origin master'
 
-# Servers
-alias medved='ssh orientweb@medved'
-alias bearbox='ssh -p 2200 bjacobel.com'
+# SSH
+alias shh='ssh'
+alias msh='mosh'
 
 # Only works on OSX
 alias folders='du -h -d 1'
