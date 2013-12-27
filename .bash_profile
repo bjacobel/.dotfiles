@@ -15,3 +15,4 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # HEAR THAT? DON'T PUT ANY MORE STUFF IN HERE! 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
