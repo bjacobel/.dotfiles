@@ -53,7 +53,7 @@ alias zip='zip -r9'
 
 #Markdown editing
 alias mou="open -a Mou"
-alias lp='open -a LightPaper"
+alias lp="open -a LightPaper"
 
 # speling is hard
 alias gti='git'
