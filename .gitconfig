@@ -1,6 +1,6 @@
 [user]
-	name = Northern Bites
-	email = northernbites@gmail.com
+	name = Brian Jacobel
+	email = bjacobel@gmail.com
 [core]
 	editor = emacs -nw
 	excludesfile = ~/.gitignore_global
