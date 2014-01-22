@@ -1,9 +1,9 @@
 [user]
-	name = Brian Jacobel
-	email = bjacobel@bowdoin.edu
+	name = Northern Bites
+	email = northernbites@gmail.com
 [core]
 	editor = emacs -nw
-	excludesfile = /Users/bjacobel/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [difftool "opendiff"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

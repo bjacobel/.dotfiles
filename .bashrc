@@ -88,10 +88,9 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export PATH="$PATH:~/code/scripts"
 
 function _update_ps1() {
-   export PS1="$(powerline-shell.py $?)"
+   export PS1="$(/usr/local/scripts/powerline-shell.py $?)"
 }
 
 export PROMPT_COMMAND="_update_ps1"
 
-# fix wils' magic mouse
-xinput --set-prop 8 "Device Accel Constant Deceleration" 4
+source ~/.bash_aliases

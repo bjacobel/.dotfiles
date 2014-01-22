@@ -70,7 +70,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes (quote (tomorrow-night)))
- '(custom-safe-themes (quote ("0bcc3cee017174dec4f895bc417a9b3fa66748ab504490ae5cba0eaba646c37e" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
+ '(custom-safe-themes (quote ("935e766f12c5f320c360340c8d9bc1726be9f8eb01ddeab312895487e50e5835" "0bcc3cee017174dec4f895bc417a9b3fa66748ab504490ae5cba0eaba646c37e" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
  '(inhibit-startup-screen t)
  '(initial-scratch-message (quote "")))
 (custom-set-faces
