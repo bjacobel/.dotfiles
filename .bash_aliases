@@ -33,9 +33,7 @@ alias folders='du -h -d 1'
 
 # Django development
 alias django='./manage.py'
-alias celery='dj celeryd --loglevel=DEBUG --concurrency=1 -n `echo $HOSTNAME` start -B'
 alias pycocide="find . -name '*.pyc' -delete"
-alias herokucs='heroku run python manage.py collectstatic --noinput'
 
 # Django development with ghetto virtualenvs
 alias activate='source ./bin/activate'
@@ -53,7 +51,6 @@ alias zip='zip -r9'
 
 #Markdown editing
 alias mou="open -a Mou"
-alias lp="open -a LightPaper"
 
 # speling is hard
 alias gti='git'
@@ -69,11 +66,6 @@ alias ifind='find . -name 2>/dev/null'
 # Copy and show progress with pv
 cpv () {
   tar cf - "$1" |  pv -s $(du -s "$1" | awk '{print $1*1000}' | awk '{printf("%d\n",$0+=$0<0?-0.5:0.5)}') | (cd "$2";tar xf -)
-}
-
-# Replace word $1 with word $2 in all files in current directory 
-replace () {
-  find . -type f | xargs perl -pi -e 's/$1/$2/g'
 }
 
 # COMPLETELY PURGE a file from a git repo, INCLUDING THE WORKING TREE
