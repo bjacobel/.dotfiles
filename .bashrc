@@ -83,7 +83,7 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # Heroku Toolbelt, RVM, MySQL, my scripts, etc.
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/heroku/bin:~/code/scripts:$PATH"
+export PATH="/usr/local/sbin:/usr/local/bin:~/code/scripts:$PATH"
 
 # for virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
