@@ -1,4 +1,3 @@
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -33,7 +32,9 @@ alias folders='du -h -d 1'
 
 # Django development
 alias django='./manage.py'
-alias pycocide="find . -name '*.pyc' -delete"
+
+# I KEEL YOU
+alias cleanup="find . \( -name "*.DS_Store" -o -name "*.orig" -o -name "*.pyc" \) -delete"
 
 # Django development with ghetto virtualenvs
 alias activate='source ./bin/activate'
@@ -42,9 +43,8 @@ alias switchenv='deactivate && activate'
 # Git shortcuts
 alias st='git st'
 alias commit='git commit'
-alias add-all='git add .'
+alias adderall='git add --all'
 alias add='git add'
-alias push='git push origin'
 alias timestamp='date +%s | pbcopy'
 
 alias zip='zip -r9'
@@ -72,3 +72,11 @@ cpv () {
 ungit () {
     git filter-branch --force --index-filter  'git rm --cached --ignore-unmatch "$1"' --prune-empty --tag-name-filter cat -- --all
 }
+
+google() {
+    QUERY=`local IFS=" "; echo "$@";`
+    open https://google.com/search?q="$QUERY"
+}
+
+# pry (ruby ipython)
+alias pry='pry -r ./config/environment'
