@@ -101,7 +101,8 @@ function _update_ps1() {
 }
 
 export PROMPT_COMMAND="_update_ps1"
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export GOPATH="$HOME/.go"
+PATH=$PATH:$HOME/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.3/bin:$GOPATH/bin # Add RVM to PATH for scripting
 
 export PGHOST=/var/pgsql_socket
 
