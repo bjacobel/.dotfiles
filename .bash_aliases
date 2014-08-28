@@ -34,7 +34,10 @@ alias folders='du -h -d 1'
 alias django='./manage.py'
 
 # I KEEL YOU
-alias cleanup="find . \( -name "*.DS_Store" -o -name "*.orig" -o -name "*.pyc" \) -delete"
+alias origicide='find . -name "*.orig" -delete'
+alias storicide='find . -name "*.DS_Store" -delete'
+alias pycocide='find . -name "*.pyc" -delete'
+
 
 # Django development with ghetto virtualenvs
 alias activate='source ./bin/activate'
@@ -63,6 +66,11 @@ alias kk='ll'
 # intelligent find
 alias ifind='find . -name 2>/dev/null'
 
+# Serve a folder wihtout apache
+alias serve="python -m SimpleHTTPServer"
+
+alias nganno="find app/assets/javascripts -name "*.js" -exec ng-annotate -aro {} {} \;"
+
 # Copy and show progress with pv
 cpv () {
   tar cf - "$1" |  pv -s $(du -s "$1" | awk '{print $1*1000}' | awk '{printf("%d\n",$0+=$0<0?-0.5:0.5)}') | (cd "$2";tar xf -)
@@ -76,6 +84,23 @@ ungit () {
 google() {
     QUERY=`local IFS=" "; echo "$@";`
     open https://google.com/search?q="$QUERY"
+}
+
+go-init(){
+    mkdir -p $GOPATH/src/github.com/bjacobel/$1
+    ln -s $GOPATH/src/github.com/bjacobel/$1 $HOME/code/$1
+    pushd $HOME/code/$1
+    git init
+}
+
+github(){
+    GHURL=$(git remote -v | grep fetch | awk '{print $2}' | sed 's/git@/http:\/\//' | sed 's/com:/com\//' | sed 's/\.git//')
+    REPOROOT=$(git rev-parse --show-toplevel)
+    REPOROOTESC=$(echo $REPOROOT | sed 's/\//\\\//g')
+    CWD=`pwd | sed "s/$(echo $REPOROOTESC)//g"`
+    TREE="/tree/$(git rev-parse --abbrev-ref HEAD)/"
+
+    open $GHURL$TREE$CWD
 }
 
 # pry (ruby ipython)
