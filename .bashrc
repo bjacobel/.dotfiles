@@ -107,3 +107,6 @@ PATH=$PATH:$HOME/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.3/bin:$
 export PGHOST=/var/pgsql_socket
 
 test -f ~/.dotfiles/.git-completion.bash && . $_
+
+# added by travis gem
+[ -f /Users/bjacobel/.travis/travis.sh ] && source /Users/bjacobel/.travis/travis.sh
