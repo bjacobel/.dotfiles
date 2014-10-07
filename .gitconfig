@@ -30,6 +30,7 @@
     amend = commit -a --amend
     remind = !sh -c 'git diff-tree --no-commit-id --name-only -r HEAD | more'
     reopen = !sh -c "true && subl $(pwd) $(git diff-tree --no-commit-id --name-only -r HEAD | cat | tr '\n' ' ' | more)"
+    cleanup = !sh -c "git branch --merged | grep -v '^* master$' | grep -v '^  master$' | xargs git branch -d"
     adderall = add --all
 [remote-hg]
 	hg-git-compat = true
