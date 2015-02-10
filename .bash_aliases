@@ -29,9 +29,11 @@ alias msh='mosh'
 
 # Only works on OSX
 alias folders='du -h -d 1'
+alias sub='open -a /Applications/Sublime\ Text.app'
 
 # Django development
 alias django='./manage.py'
+alias deploy='ansible-playbook ansible/deploy.yml'
 
 # I KEEL YOU
 alias origicide='find . -name "*.orig" -delete'
@@ -54,6 +56,7 @@ alias zip='zip -r9'
 
 #Markdown editing
 alias mou="open -a Mou"
+alias md="open -a MacDown"
 
 # speling is hard
 alias gti='git'
@@ -65,6 +68,9 @@ alias kk='ll'
 
 # intelligent find
 alias ifind='find . -name 2>/dev/null'
+
+# command line pastes client
+alias clbin="curl -F 'clbin=<-' https://clbin.com"
 
 # Serve a folder wihtout apache
 alias serve="python -m SimpleHTTPServer"
@@ -101,6 +107,14 @@ github(){
     TREE="/tree/$(git rev-parse --abbrev-ref HEAD)/"
 
     open $GHURL$TREE$CWD
+}
+
+aglio-s3(){
+  aglio -i $1 -o index.html -t flatly-multi && aws --profile raizlabs s3api put-object --bucket apis.raizlabs.com --key $2/index.html --body index.html --acl public-read --content-type text/html && rm index.html
+}
+
+calc () {
+    bc -l <<< "$@"
 }
 
 # pry (ruby ipython)

@@ -82,9 +82,6 @@ export CLICOLOR=1
 
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-# Heroku Toolbelt, RVM, MySQL, my scripts, etc.
-export PATH="/usr/local/sbin:/usr/local/bin:~/code/scripts:$PATH"
-
 # for virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/code
@@ -102,7 +99,7 @@ function _update_ps1() {
 
 export PROMPT_COMMAND="_update_ps1"
 export GOPATH="$HOME/.go"
-PATH=$PATH:$HOME/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.3/bin:$GOPATH/bin # Add RVM to PATH for scripting
+export PATH="/usr/local/sbin:/usr/local/bin:$GOPATH/bin:$HOME/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH:~/code/scripts"
 
 export PGHOST=/var/pgsql_socket
 
@@ -110,3 +107,5 @@ test -f ~/.dotfiles/.git-completion.bash && . $_
 
 # added by travis gem
 [ -f /Users/bjacobel/.travis/travis.sh ] && source /Users/bjacobel/.travis/travis.sh
+
+complete -C aws_completer aws
