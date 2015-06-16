@@ -1,0 +1,39 @@
+{
+	"auto_complete_commit_on_tab": true,
+	"color_scheme": "Packages/User/Tomorrow-Night (SL).tmTheme",
+	"detect_slow_plugins": false,
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		".sass-cache",
+		"__pycache__",
+		".tmp",
+		"tmp",
+		".vagrant",
+		".coverage",
+		".gitattributes",
+		".editorconfig"
+	],
+	"font_size": 13,
+	"ignored_packages":
+	[
+		"SublimeCodeIntel",
+		"Simple Print Function",
+		"Pretty JSON",
+		"Markdown",
+		"Vintage"
+	],
+	"rulers":
+	[
+		80
+	],
+	"soda_classic_tabs": true,
+	"tab_size": 4,
+	"theme": "Soda Dark 3.sublime-theme",
+	"trailing_spaces_trim_on_save": true,
+	"translate_tabs_to_spaces": true,
+	"update_check": false
+}

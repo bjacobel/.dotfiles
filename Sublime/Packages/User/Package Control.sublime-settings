@@ -1,0 +1,48 @@
+{
+	"auto_upgrade_last_run": null,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"AngularInject",
+		"AngularJS",
+		"Backbone.js",
+		"BeautifyRuby",
+		"Better Completion",
+		"Case Conversion",
+		"Color Highlighter",
+		"ColorPicker",
+		"Cucumber",
+		"Djaneiro",
+		"Docker Based Build Systems",
+		"Dockerfile Syntax Highlighting",
+		"GitGutter",
+		"GoSublime",
+		"Handlebars",
+		"HTML Underscore Syntax",
+		"Jinja2",
+		"JSON Reindent",
+		"JsonTree",
+		"LESS",
+		"LoremIpsum",
+		"MarkdownEditing",
+		"Package Control",
+		"Pretty JSON",
+		"RawLineEdit",
+		"Ruby Slim",
+		"SCSS",
+		"SFTP",
+		"Simple Print Function",
+		"sublime-github",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-contrib-jslint",
+		"SublimeLinter-pep8",
+		"SublimeLinter-pyflakes",
+		"SublimeLinter-ruby",
+		"TrailingSpaces",
+		"Underscore.js Snippets"
+	]
+}

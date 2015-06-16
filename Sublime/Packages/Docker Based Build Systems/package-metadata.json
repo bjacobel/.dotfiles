@@ -1,0 +1,1 @@
+{"sublime_text": "*", "url": "https://github.com/domeide/sublime-docker", "dependencies": [], "description": "A Sublime Text plugin to use Docker Language Stacks as build systems", "version": "1.2.7", "platforms": ["osx", "linux"]}

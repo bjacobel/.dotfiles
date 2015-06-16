@@ -1,0 +1,6 @@
+[
+    { "keys": ["command+ctrl+alt+up"], "command": "increment" },
+    { "keys": ["command+ctrl+alt+down"], "command": "decrement" },
+    { "keys": ["ctrl+r"], "command": "run_code" },
+    { "keys": ["super+\\"], "command": "reindent" },
+]
