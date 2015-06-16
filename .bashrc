@@ -99,7 +99,7 @@ function _update_ps1() {
 
 export PROMPT_COMMAND="_update_ps1"
 export GOPATH="$HOME/.go"
-export PATH="/usr/local/sbin:/usr/local/bin:$GOPATH/bin:$HOME/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH:~/code/scripts"
+export PATH="/usr/local/sbin:/usr/local/bin:$GOPATH/bin:$HOME/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH:~/code/personal/scripts"
 
 export PGHOST=/var/pgsql_socket
 
