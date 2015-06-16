@@ -35,6 +35,11 @@ alias sub='open -a /Applications/Sublime\ Text.app'
 alias django='./manage.py'
 alias deploy='ansible-playbook ansible/deploy.yml'
 
+# Go development
+alias fresher='fresh -c fresh.conf'
+alias dc="docker-compose"
+alias dm="docker-machine"
+
 # I KEEL YOU
 alias origicide='find . -name "*.orig" -delete'
 alias storicide='find . -name "*.DS_Store" -delete'
@@ -113,8 +118,12 @@ aglio-s3(){
   aglio -i $1 -o index.html -t flatly-multi && aws --profile raizlabs s3api put-object --bucket apis.raizlabs.com --key $2/index.html --body index.html --acl public-read --content-type text/html && rm index.html
 }
 
-calc () {
+calc(){
     bc -l <<< "$@"
+}
+
+deploybr(){
+    deploy --extra-vars='branch="$@"'
 }
 
 # pry (ruby ipython)
