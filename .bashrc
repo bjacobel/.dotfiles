@@ -88,7 +88,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export PATH="$PATH:~/code/scripts"
 
 function _update_ps1() {
-   export PS1="$(/usr/local/scripts/powerline-shell.py $?)"
+   export PS1="$(/home/bjacobel/code/personal/scripts/powerline-shell.py $?)"
 }
 
 export PROMPT_COMMAND="_update_ps1"
