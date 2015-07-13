@@ -1,6 +1,6 @@
 [user]
 	name = Brian Jacobel
-	email = brian@bjacobel.com
+	email = bjacobel@localytics.com
 [core]
 	editor = emacs -nw
 	excludesfile = /Users/bjacobel/.gitignore_global
@@ -35,3 +35,5 @@
 	uncommit = reset --soft HEAD~1
 [remote-hg]
 	hg-git-compat = true
+[pull]
+	rebase = true

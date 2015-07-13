@@ -25,7 +25,7 @@ alias msh='mosh'
 
 # Only works on OSX
 alias folders='du -h -d 1'
-alias sub='open -a /Applications/Sublime\ Text.app'
+alias sub='subl'
 
 # Django development
 alias django='./manage.py'
@@ -56,7 +56,6 @@ alias timestamp='date +%s | pbcopy'
 alias zip='zip -r9'
 
 #Markdown editing
-alias mou="open -a Mou"
 alias md="open -a MacDown"
 
 # speling is hard
@@ -75,8 +74,6 @@ alias clbin="curl -F 'clbin=<-' https://clbin.com"
 
 # Serve a folder wihtout apache
 alias serve="python -m SimpleHTTPServer"
-
-alias nganno="find app/assets/javascripts -name "*.js" -exec ng-annotate -aro {} {} \;"
 
 # Copy and show progress with pv
 cpv () {
@@ -110,16 +107,8 @@ github(){
     open $GHURL$TREE$CWD
 }
 
-aglio-s3(){
-  aglio -i $1 -o index.html -t flatly-multi && aws --profile raizlabs s3api put-object --bucket apis.raizlabs.com --key $2/index.html --body index.html --acl public-read --content-type text/html && rm index.html
-}
-
 calc(){
     bc -l <<< "$@"
-}
-
-deploybr(){
-    deploy --extra-vars='branch="$@"'
 }
 
 # pry (ruby ipython)

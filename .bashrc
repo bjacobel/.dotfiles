@@ -99,7 +99,7 @@ function _update_ps1() {
 
 export PROMPT_COMMAND="_update_ps1"
 export GOPATH="$HOME/.go"
-export PATH="/usr/local/sbin:/usr/local/bin:$GOPATH/bin:$HOME/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH:~/code/personal/scripts"
+export PATH="$PATH:/usr/local/sbin:/usr/local/bin:$GOPATH/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin:$HOME/.rvm/bin:~/code/personal/scripts"
 
 export PGHOST=/var/pgsql_socket
 
@@ -108,4 +108,9 @@ test -f ~/.dotfiles/.git-completion.bash && . $_
 # added by travis gem
 [ -f /Users/bjacobel/.travis/travis.sh ] && source /Users/bjacobel/.travis/travis.sh
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
 complete -C aws_completer aws
+
+
+export VERTICAINI=$HOME/opt/vertica/include/vertica.ini
