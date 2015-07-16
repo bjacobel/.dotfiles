@@ -4,3 +4,4 @@
 .sass-cache
 .ruby-gemset
 tunnel.sh
+*~HEAD
