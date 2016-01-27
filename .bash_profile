@@ -13,5 +13,3 @@ fi
 if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
-
-source /Users/bjacobel/.iterm2_shell_integration.bash

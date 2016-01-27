@@ -26,10 +26,15 @@ alias msh='mosh'
 # Only works on OSX
 alias folders='du -h -d 1'
 alias sub='subl'
+alias atm='atom'
+alias a='atom'
 
 # Django development
 alias django='./manage.py'
 alias deploy='ansible-playbook ansible/deploy.yml'
+
+# Rails development
+alias pssg="passenger start -p 3000 --max-pool-size 3"
 
 # Go development
 alias fresher='fresh -c fresh.conf'
@@ -64,6 +69,7 @@ alias itg='git'
 alias got='git'
 alias fit='git'
 alias tgi='git'
+alias gut='git'
 alias kk='ll'
 
 # intelligent find
@@ -105,6 +111,14 @@ github(){
     TREE="/tree/$(git rev-parse --abbrev-ref HEAD)/"
 
     open $GHURL$TREE$CWD
+}
+
+function spec {
+  if [ -z "$1" ]
+  then
+    return
+  fi
+  RAILS_ENV=test bundle exec rake spec SPEC=./$1
 }
 
 calc(){

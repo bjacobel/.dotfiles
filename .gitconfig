@@ -8,11 +8,10 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [mergetool "opendiff"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [diff]
-	tool = sourcetree
+	tool = opendiff
 [merge]
-	tool = sourcetree
+	tool = opendiff
 [push]
         default = tracking
 [color]
@@ -27,11 +26,12 @@
         lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all
         amend = commit -a --amend
         remind = !sh -c 'git diff-tree --no-commit-id --name-only -r HEAD | more'
-        reopen = !sh -c "true && subl $(pwd) $(git diff-tree --no-commit-id --name-only -r HEAD | cat | tr '\n' ' ' | more)"
-	dirty = !sh -c "true && subl $(pwd) $(git st -s | cat | tr '\n M' ' ' | more)"
+        reopen = !sh -c "true && sub $(pwd) $(git diff-tree --no-commit-id --name-only -r HEAD | cat | tr '\n' ' ' | more)"
+	dirty = !sh -c "true && sub $(pwd) $(git st -s | cat | tr '\n M' ' ' | more)"
         cleanup = "!git branch --merged | grep -v '^* master$' | grep -v '^  master$' | xargs git branch -d"
         adderall = add --all
 	uncommit = reset --soft HEAD~1
+	freebase = "!export BR=$(git rev-parse --abbrev-ref HEAD) && git checkout master && git pull && git checkout $BR && git rebase master"
 [remote-hg]
 	hg-git-compat = true
 [pull]
