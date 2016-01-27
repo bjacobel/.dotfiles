@@ -113,7 +113,6 @@ test -f ~/.dotfiles/.git-completion.bash && . $_
 complete -C aws_completer aws
 
 export VERTICAINI=$HOME/opt/vertica/include/vertica.ini
-export HOMEBREW_GITHUB_API_TOKEN=a97e6c4283727852893f834c8dbd3e4a82cd0c82
 
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
