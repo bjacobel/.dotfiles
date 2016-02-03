@@ -1,0 +1,8 @@
+*~
+.DS_Store
+*.orig
+.sass-cache
+.ruby-gemset
+tunnel.sh
+*~HEAD
+npm-debug.log*
