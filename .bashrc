@@ -113,6 +113,3 @@ test -f ~/.dotfiles/.git-completion.bash && . $_
 complete -C aws_completer aws
 
 export VERTICAINI=$HOME/opt/vertica/include/vertica.ini
-
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
