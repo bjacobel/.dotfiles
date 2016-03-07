@@ -99,7 +99,7 @@ function _update_ps1() {
 
 export PROMPT_COMMAND="_update_ps1"
 export GOPATH="$HOME/.go"
-export PATH="$PATH:/usr/local/sbin:/usr/local/bin:$GOPATH/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin:$HOME/.rvm/bin:~/code/personal/scripts"
+export PATH="$PATH:/usr/local/sbin:/usr/local/bin:$GOPATH/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin:$HOME/.rvm/bin:~/code/scripts"
 
 export PGHOST=/var/pgsql_socket
 
@@ -113,3 +113,6 @@ test -f ~/.dotfiles/.git-completion.bash && . $_
 complete -C aws_completer aws
 
 export VERTICAINI=$HOME/opt/vertica/include/vertica.ini
+
+export NVM_DIR="/Users/bjacobel/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
