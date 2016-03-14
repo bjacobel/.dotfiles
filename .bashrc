@@ -112,7 +112,8 @@ test -f ~/.dotfiles/.git-completion.bash && . $_
 
 complete -C aws_completer aws
 
-export VERTICAINI=$HOME/opt/vertica/include/vertica.ini
-
 export NVM_DIR="/Users/bjacobel/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Add machine-specific env vars to .env file
+export $(cat ./.env | xargs)
