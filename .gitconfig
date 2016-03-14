@@ -4,6 +4,7 @@
 [core]
 	editor = emacs -nw
 	excludesfile = /Users/bjacobel/.gitignore_global
+	precomposeunicode = false
 [difftool "opendiff"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [mergetool "opendiff"]
@@ -36,3 +37,6 @@
 	hg-git-compat = true
 [pull]
 	rebase = true
+[branch]
+	autosetupmerge = true
+	autosetuprebase = always
