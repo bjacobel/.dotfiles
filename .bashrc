@@ -116,4 +116,4 @@ export NVM_DIR="/Users/bjacobel/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Add machine-specific env vars to .env file
-export $(cat ./.env | xargs)
+export $(cat ~/.env | xargs)
