@@ -98,7 +98,9 @@ function _update_ps1() {
 }
 
 export PROMPT_COMMAND="_update_ps1"
-export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/local/mysql/bin:$HOME/.rvm/bin:~/code/scripts"
+export GOPATH="$HOME/.go"
+export PATH="$PATH:/usr/local/sbin:/usr/local/bin:$GOPATH/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin:/usr/local/mysql/bin:$HOME/.rvm/bin:~/code/scripts"
+export PGHOST=/var/pgsql_socket
 
 test -f ~/.dotfiles/.git-completion.bash && . $_
 
