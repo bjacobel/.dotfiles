@@ -1,6 +1,7 @@
 [user]
 	name = Brian Jacobel
 	email = bjacobel@gmail.com
+	signingkey = F9F07922
 [core]
 	editor = emacs -nw
 	excludesfile = /Users/bjacobel/.gitignore_global
@@ -40,3 +41,5 @@
 [branch]
 	autosetupmerge = true
 	autosetuprebase = always
+[rebase]
+	autosquash = true
