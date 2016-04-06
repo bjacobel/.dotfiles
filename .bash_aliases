@@ -33,9 +33,6 @@ alias a='atom'
 alias django='./manage.py'
 alias deploy='ansible-playbook ansible/deploy.yml'
 
-# Rails development
-alias pssg="passenger start -p 3000 --max-pool-size 3"
-
 # Go development
 alias fresher='fresh -c fresh.conf'
 alias dc="docker-compose"
@@ -45,7 +42,6 @@ alias dm="docker-machine"
 alias origicide='find . -name "*.orig" -delete'
 alias storicide='find . -name "*.DS_Store" -delete'
 alias pycocide='find . -name "*.pyc" -delete'
-
 
 # Django development with ghetto virtualenvs
 alias activate='source ./bin/activate'
@@ -113,17 +109,11 @@ github(){
     open $GHURL$TREE$CWD
 }
 
-function spec {
-  if [ -z "$1" ]
-  then
-    return
-  fi
-  RAILS_ENV=test bundle exec rake spec SPEC=./$1
-}
-
 calc(){
     bc -l <<< "$@"
 }
 
-# pry (ruby ipython)
-alias pry='pry -r ./config/environment'
+mkcdir (){
+  mkdir -p -- "$1" &&
+  cd -P -- "$1"
+}
