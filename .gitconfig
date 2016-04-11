@@ -28,8 +28,8 @@
         lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all
         amend = commit -a --amend
         remind = !sh -c 'git diff-tree --no-commit-id --name-only -r HEAD | more'
-        reopen = !sh -c "true && sub $(pwd) $(git diff-tree --no-commit-id --name-only -r HEAD | cat | tr '\n' ' ' | more)"
-	dirty = !sh -c "true && sub $(pwd) $(git st -s | cat | tr '\n M' ' ' | more)"
+        reopen = !sh -c "true && atom $(pwd) $(git diff-tree --no-commit-id --name-only -r HEAD | cat | tr '\n' ' ' | more)"
+				stopen = !sh -c "true && atom $(pwd) $(git st -s | cat | tr '\n M' ' ' | more)"
         cleanup = "!git branch --merged | grep -v '^* master$' | grep -v '^  master$' | xargs git branch -d"
         adderall = add --all
 	uncommit = reset --soft HEAD~1

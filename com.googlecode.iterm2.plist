@@ -170,34 +170,25 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>322</string>
+		<string>307</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
-	<key>NSToolbar Configuration Terminal Toolbar</key>
-	<dict>
-		<key>TB Display Mode</key>
-		<integer>1</integer>
-		<key>TB Icon Size Mode</key>
-		<integer>1</integer>
-		<key>TB Is Shown</key>
-		<integer>0</integer>
-		<key>TB Size Mode</key>
-		<integer>1</integer>
-	</dict>
 	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
 	<dict>
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>929 110 445 307 0 0 1440 877 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>2646 961 606 456 2560 0 2560 1417 </string>
+	<string>524 242 606 456 0 0 1680 1027 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>530 477 620 392 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2560 19 1290 1398 2560 0 2560 1417 </string>
+	<string>0 0 1680 1028 0 0 1680 1027 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>191 5 810 1020 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -354,7 +345,7 @@
 			<key>Automatically Log</key>
 			<false/>
 			<key>BM Growl</key>
-			<true/>
+			<false/>
 			<key>Background Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -830,8 +821,16 @@
 				<key>text</key>
 				<string></string>
 			</dict>
+			<key>Send Bell Alert</key>
+			<false/>
 			<key>Send Code When Idle</key>
 			<false/>
+			<key>Send Idle Alert</key>
+			<false/>
+			<key>Send Session Ended Alert</key>
+			<false/>
+			<key>Send Terminal Generated Alerts</key>
+			<true/>
 			<key>Set Local Environment Vars</key>
 			<true/>
 			<key>Shortcut</key>
@@ -940,7 +939,28 @@
 			<key>Transparency</key>
 			<real>0.078446276485919952</real>
 			<key>Triggers</key>
-			<array/>
+			<array>
+				<dict>
+					<key>action</key>
+					<string>ScriptTrigger</string>
+					<key>parameter</key>
+					<string>~/code/scripts/notify "Assets updated" "Paver"</string>
+					<key>partial</key>
+					<true/>
+					<key>regex</key>
+					<string>Finished collecting studio assets.</string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>ScriptTrigger</string>
+					<key>parameter</key>
+					<string>~/code/scripts/notify "Sass updated" "Paver"</string>
+					<key>partial</key>
+					<true/>
+					<key>regex</key>
+					<string>Finished compiling Sass</string>
+				</dict>
+			</array>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -965,32 +985,14 @@
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>0</integer>
-	<key>NoSyncLastTipTime</key>
-	<real>460672731.74056</real>
-	<key>NoSyncNeverRemindPrefsChangesCopy</key>
-	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
-	<key>NoSyncSuppressAnnyoingBellOffer</key>
-	<true/>
-	<key>NoSyncTimeOfLastPromo</key>
-	<real>457988083.96221399</real>
-	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>458594807.759799</real>
-	<key>NoSyncTipsDisabled</key>
-	<true/>
-	<key>NoSyncTipsToNotShow</key>
-	<array>
-		<string>000</string>
-		<string>0000</string>
-		<string>0001</string>
-		<string>0002</string>
-		<string>0003</string>
-		<string>0004</string>
-		<string>0005</string>
-	</array>
+	<key>NoSyncPermissionToShowTip</key>
+	<false/>
+	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
+	<real>479675457.25393599</real>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
@@ -1021,7 +1023,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/bjacobel/.dotfiles/</string>
+	<string>~/.dotfiles</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -1041,7 +1043,9 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-08-11T19:24:39Z</date>
+	<date>2016-03-28T13:32:31Z</date>
+	<key>SUSendProfileInfo</key>
+	<false/>
 	<key>SavePasteHistory</key>
 	<true/>
 	<key>ShowBookmarkName</key>
@@ -1096,7 +1100,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20160206</string>
+	<string>2.9.20160313</string>
 	<key>kCommandHistoryHasEverBeenUsed</key>
 	<true/>
 </dict>
