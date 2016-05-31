@@ -6,3 +6,4 @@
 tunnel.sh
 *~HEAD
 npm-debug.log*
+.po
