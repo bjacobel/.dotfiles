@@ -117,3 +117,8 @@ mkcdir (){
   mkdir -p -- "$1" &&
   cd -P -- "$1"
 }
+
+nastyssh(){
+  # run this after you get the infamous "IT IS POSSIBLE SOMEBODY IS DOING SOMETHING NASTY" ssh error
+  sed -i "" "${1}d" /Users/bjacobel/.ssh/known_hosts
+}
