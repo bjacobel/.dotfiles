@@ -116,3 +116,6 @@ export NVM_DIR="/Users/bjacobel/.nvm"
 
 # Add machine-specific env vars to .env file
 export $(cat ~/.env | xargs)
+
+# requires fuck (brew install thefuck)
+eval "$(thefuck --alias)"
