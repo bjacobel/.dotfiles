@@ -110,7 +110,7 @@ github(){
 }
 
 calc(){
-    bc -l <<< "$@"
+    echo "scale=3; $@" | bc
 }
 
 mkcdir (){
@@ -125,4 +125,24 @@ nastyssh(){
 
 function title {
   echo -ne "\033]0;"$*"\007"
+}
+
+atime() {
+  # find the average time to run a command for n runs
+  # usage: atime 5 curl https://google.com
+  realtot=0
+  usertot=0
+  systot=0
+
+  for ((i = 0; i < $1; i++)); do
+    read real user sys <<< $({ time ${@:2}; } 2>&1 | pcregrep -o1 "\dm(\d\.\d\d\d)s")
+    realtot=$(calc $realtot + $real)
+    usertot=$(calc $usertot + $user)
+    systot=$(calc $systot + $sys)
+  done
+
+  echo "averaging $1 runs:"
+  echo "real: $(calc $realtot / $1) sec"
+  echo "user: $(calc $usertot / $1) sec"
+  echo "sys: $(calc $systot / $1) sec"
 }
