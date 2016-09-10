@@ -100,7 +100,7 @@ go-init(){
 }
 
 github(){
-    GHURL=$(git remote -v | grep fetch | awk '{print $2}' | sed 's/git@/http:\/\//' | sed 's/com:/com\//' | sed 's/\.git//')
+    GHURL=$(git remote -v | grep "origin.*fetch" | awk '{print $2}' | sed 's/git@/http:\/\//' | sed 's/com:/com\//' | sed 's/\.git//')
     REPOROOT=$(git rev-parse --show-toplevel)
     REPOROOTESC=$(echo $REPOROOT | sed 's/\//\\\//g')
     CWD=`pwd | sed "s/$(echo $REPOROOTESC)//g"`
@@ -121,4 +121,8 @@ mkcdir (){
 nastyssh(){
   # run this after you get the infamous "IT IS POSSIBLE SOMEBODY IS DOING SOMETHING NASTY" ssh error
   sed -i "" "${1}d" /Users/bjacobel/.ssh/known_hosts
+}
+
+function title {
+  echo -ne "\033]0;"$*"\007"
 }
