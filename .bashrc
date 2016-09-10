@@ -54,7 +54,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1="\[\033[01;34m\]\u@\h\[\033[00m\]:\[\033[01;37m\]\w\[\033[01;31m\] \`ruby -e \"print (%x{git branch 2> /dev/null}.split(%r{\n}).grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`\[\033[00m\]$\[\033[00m\]  "
+    PS1="\[\033[01;34m\]\u@\h\[\033[00m\]:\[\033[01;37m\]\w\[\033[01;31m\]\[\033[00m\]$\[\033[00m\]  "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -76,46 +76,56 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+############
+# Most things above this line were already here / Darwin defaults.
+# Most things below are custom.
+############
+
+# Make ~/Library browsable in Finder
 chflags nohidden ~/Library/
 
+# Colorize output of `ls`
 export CLICOLOR=1
-
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-# for virtualenvwrapper
+# Set up virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/code
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
-
+# Pretty PS1
 function _update_ps1() {
    export PS1="$(powerline-shell.py $?)"
 }
-
 export PROMPT_COMMAND="_update_ps1"
+
+# Golang
 export GOPATH="$HOME/.go"
-export PATH="$PATH:/usr/local/sbin:/usr/local/bin:$GOPATH/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin:/usr/local/mysql/bin:$HOME/.rvm/bin:~/code/scripts"
+
+# Postgres.app
 export PGHOST=/var/pgsql_socket
 
+# Just the PATH
+export PATH="$PATH:/usr/local/sbin:/usr/local/bin:$GOPATH/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin:/usr/local/mysql/bin:$HOME/.rvm/bin:~/code/scripts"
+
+# Git, AWS CLI, and bash completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 test -f ~/.dotfiles/.git-completion.bash && . $_
-
-# added by travis gem
-[ -f /Users/bjacobel/.travis/travis.sh ] && source /Users/bjacobel/.travis/travis.sh
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 complete -C aws_completer aws
-
-export NVM_DIR="/Users/bjacobel/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Add machine-specific env vars to .env file
 export $(cat ~/.env | xargs)
 
-# requires fuck (brew install thefuck)
-eval "$(thefuck --alias)"
+# Set up Travis gem
+[ -f /Users/bjacobel/.travis/travis.sh ] && source /Users/bjacobel/.travis/travis.sh
+
+# Set up RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Set up `nvm`
+export NVM_DIR="/Users/bjacobel/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
