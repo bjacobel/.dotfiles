@@ -6,11 +6,17 @@
 tunnel.sh
 *~HEAD
 npm-debug.log*
+yarn-error.log
+node_modules
 .po
 coverage/*
 .tags
 .tags_swap
 .jekyll-metadata
+jsconfig.json
+.vscode
 
 themes/red-theme/lms/static/css/discussion/
 themes/stanford-style/lms/static/css/discussion/
+
+TESTS.xml

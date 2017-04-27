@@ -126,6 +126,4 @@ export $(cat ~/.env | xargs)
 # Set up RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# Set up `nvm`
-export NVM_DIR="/Users/bjacobel/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+export PATH="$HOME/.yarn/bin:$PATH"
