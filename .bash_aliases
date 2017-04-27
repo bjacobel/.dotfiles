@@ -77,6 +77,8 @@ alias clbin="curl -F 'clbin=<-' https://clbin.com"
 # Serve a folder wihtout apache
 alias serve="python -m SimpleHTTPServer"
 
+alias wba="NODE_ENV=production yb webpack -p --json > dist/webpack-stats.json && webpack-bundle-analyzer dist/webpack-stats.json dist"
+
 # Copy and show progress with pv
 cpv () {
   tar cf - "$1" |  pv -s $(du -s "$1" | awk '{print $1*1000}' | awk '{printf("%d\n",$0+=$0<0?-0.5:0.5)}') | (cd "$2";tar xf -)
@@ -104,9 +106,9 @@ github(){
     REPOROOT=$(git rev-parse --show-toplevel)
     REPOROOTESC=$(echo $REPOROOT | sed 's/\//\\\//g')
     CWD=`pwd | sed "s/$(echo $REPOROOTESC)//g"`
-    TREE="/tree/$(git rev-parse --abbrev-ref HEAD)/"
+    COMPARE="/compare/$(git rev-parse --abbrev-ref HEAD)?expand=1"
 
-    open $GHURL$TREE$CWD
+    open $GHURL$COMPARE$CWD
 }
 
 calc(){
@@ -145,4 +147,16 @@ atime() {
   echo "real: $(calc $realtot / $1) sec"
   echo "user: $(calc $usertot / $1) sec"
   echo "sys: $(calc $systot / $1) sec"
+}
+
+npmb() {
+  "$(npm bin)/$1" "${@:2}"
+}
+
+yb() {
+  "$(yarn bin)/$1" "${@:2}"
+}
+
+forever() {
+  while "${@:1}"; do :; done
 }
