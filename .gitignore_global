@@ -15,8 +15,6 @@ coverage/*
 .jekyll-metadata
 jsconfig.json
 .vscode
-
-themes/red-theme/lms/static/css/discussion/
-themes/stanford-style/lms/static/css/discussion/
+yarn-error.log
 
 TESTS.xml
