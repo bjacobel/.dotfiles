@@ -75,9 +75,11 @@ alias ifind='find . -name 2>/dev/null'
 alias clbin="curl -F 'clbin=<-' https://clbin.com"
 
 # Serve a folder wihtout apache
-alias serve="python -m SimpleHTTPServer"
+alias serve="python3 -m http.server"
 
 alias wba="NODE_ENV=production yb webpack -p --json > dist/webpack-stats.json && webpack-bundle-analyzer dist/webpack-stats.json dist"
+
+alias newapi='dc kill && dc rm -f && rm -rf .db && git pull && dc build --force-rm --no-cache && dc run web migrate && dc run web loaddata `ls config/fixtures/ | grep "\d\d.*" | tr "\n" " "` && dc up'
 
 # Copy and show progress with pv
 cpv () {
@@ -110,6 +112,8 @@ github(){
 
     open $GHURL$COMPARE$CWD
 }
+
+alias gh='github'
 
 calc(){
     echo "scale=3; $@" | bc
@@ -160,3 +164,13 @@ yb() {
 forever() {
   while "${@:1}"; do :; done
 }
+
+version() {
+  yarn info $1 --json | jq ".data[\"dist-tags\"].latest" -r
+}
+
+instances() {
+  aws ec2 describe-instances --filter Name="tag:Name",Values="$1" | jq ".Reservations | map(.Instances[]) | map(.$2)"
+}
+
+alias xcall="/Applications/xcall.app/Contents/MacOS/xcall -url"

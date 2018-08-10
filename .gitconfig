@@ -6,12 +6,14 @@
 	editor = emacs -nw
 	excludesfile = /Users/bjacobel/.gitignore_global
 	precomposeunicode = false
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [difftool "opendiff"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [mergetool "opendiff"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 [diff]
 	tool = opendiff
+	colormoved = plain
 [merge]
 	tool = opendiff
 [push]
@@ -31,6 +33,18 @@
 	diff = true
 	interactive = true
 	status = true
+[color "diff"]
+	meta = white bold
+	frag = cyan bold
+	commit = 227 bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
 [alias]
 	co = checkout
 	st = status
@@ -46,3 +60,8 @@
 	freebase = !git fetch && git rebase origin/master
 	pushb = !git push --set-upstream origin $(git symbolic-ref --short HEAD)
 	slog = log --oneline master..
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[diff-so-fancy]
+	stripLeadingSymbols = false
