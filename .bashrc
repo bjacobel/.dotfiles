@@ -127,3 +127,13 @@ export $(cat ~/.env | xargs)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 export PATH="$HOME/.yarn/bin:$PATH"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /Users/bjacobel/.config/yarn/global/node_modules/tabtab/.completions/serverless.bash ] && . /Users/bjacobel/.config/yarn/global/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /Users/bjacobel/.config/yarn/global/node_modules/tabtab/.completions/sls.bash ] && . /Users/bjacobel/.config/yarn/global/node_modules/tabtab/.completions/sls.bash
+
+# Put NPM_TOKEN into environment
+export NPM_TOKEN=`cut -d "=" -f 2 < ~/.npmrc`
