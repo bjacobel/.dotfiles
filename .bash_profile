@@ -13,3 +13,4 @@ fi
 if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
+eval "$(pyenv virtualenv-init -)"
