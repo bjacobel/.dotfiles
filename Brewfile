@@ -85,3 +85,10 @@ brew "wget"
 brew "yarn"
 brew "eddieantonio/eddieantonio/imgcat"
 brew "wata727/tflint/tflint"
+mas "Bear", id: 1091189122
+mas "BetterSnapTool", id: 417375580
+mas "Monosnap", id: 540348655
+mas "Sim Daltonism", id: 693112260
+mas "Tweetbot", id: 557168941
+mas "Xcode", id: 497799835
+mas "YubiKey Personalization Tool", id: 638161122
