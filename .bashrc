@@ -53,13 +53,6 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1="\[\033[01;34m\]\u@\h\[\033[00m\]:\[\033[01;37m\]\w\[\033[01;31m\]\[\033[00m\]$\[\033[00m\]  "
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-
 # If this is an xterm set the title to user@host:dir
 #case "$TERM" in
 #xterm*|rxvt*)
@@ -97,7 +90,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # Pretty PS1
 function _update_ps1() {
-   export PS1="$(powerline-shell.py $?)"
+   export PS1="$(powerline-shell.py --colorize-hostname $?)"
 }
 export PROMPT_COMMAND="_update_ps1"
 
