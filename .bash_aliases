@@ -25,18 +25,10 @@ alias msh='mosh'
 
 # Only works on OSX
 alias folders='du -h -d 1'
-alias sub='subl'
-alias atm='atom'
-alias a='atom'
-
-# Django development
-alias django='./manage.py'
-alias deploy='ansible-playbook ansible/deploy.yml'
 
 # Go development
 alias fresher='fresh -c fresh.conf'
 alias dc="docker-compose"
-alias dm="docker-machine"
 
 # I KEEL YOU
 alias origicide='find . -name "*.orig" -delete'
@@ -78,8 +70,6 @@ alias clbin="curl -F 'clbin=<-' https://clbin.com"
 alias serve="python3 -m http.server"
 
 alias wba="NODE_ENV=production yb webpack -p --json > dist/webpack-stats.json && webpack-bundle-analyzer dist/webpack-stats.json dist"
-
-alias newapi='dc kill && dc rm -f && rm -rf .db && git pull && dc build --force-rm --no-cache && dc run web migrate && dc run web loaddata `ls config/fixtures/ | grep "\d\d.*" | tr "\n" " "` && dc up'
 
 # Copy and show progress with pv
 cpv () {
@@ -153,19 +143,15 @@ atime() {
   echo "sys: $(calc $systot / $1) sec"
 }
 
-npmb() {
-  "$(npm bin)/$1" "${@:2}"
-}
-
-yb() {
-  "$(yarn bin)/$1" "${@:2}"
-}
-
 forever() {
   while "${@:1}"; do :; done
 }
 
-version() {
+versions() {
+  yarn info $1 --json | jq ".data.versions" -r
+}
+
+latest() {
   yarn info $1 --json | jq ".data[\"dist-tags\"].latest" -r
 }
 
@@ -174,3 +160,34 @@ instances() {
 }
 
 alias xcall="/Applications/xcall.app/Contents/MacOS/xcall -url"
+
+alias dbend=~/code/asset-bender-hubspot/packages/asset-bender-cli/bin/asset-bender
+alias dev-bend=dbend
+
+kb() {
+  numfmt --format "%.2f" --to=iec --suffix=B $(stat -f%z $1)
+}
+
+cdnkb() {
+  numfmt --format "%.2f" --to=iec --suffix=B $(curl "$1" --silent --write-out '%{size_download}' --output /dev/null --compressed)
+}
+
+brkb() {
+  set -e
+  brotli -f -o /tmp/js.br $1
+  kb /tmp/js.br
+}
+
+runtimedeps () {
+  bend exec mothership run runtimedep-report --parameters-file <(echo "{\"targets\": [\"$1\"]}")
+}
+
+killi () {
+  docker kill `docker ps -q --filter "$1"`
+}
+
+indir () {
+  pushd $1 1>/dev/null
+  ${@:2}
+  popd 1>/dev/null
+}

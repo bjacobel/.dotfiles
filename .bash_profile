@@ -14,3 +14,6 @@ if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
 eval "$(pyenv virtualenv-init -)"
+
+# Added by nex: https://git.hubteam.com/HubSpot/nex
+. ~/.hubspot/shellrc
