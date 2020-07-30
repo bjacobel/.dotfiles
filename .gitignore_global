@@ -18,3 +18,5 @@ jsconfig.json
 yarn-error.log
 
 TESTS.xml
+
+**/target

@@ -1,12 +1,14 @@
 [user]
 	name = Brian Jacobel
-	email = bjacobel@gmail.com
-	signingkey = F9F07922
+	email = bjacobel@hubspot.com
+[includeIf "gitdir:~/code/personal/"]
+	path = ~/.dotfiles/.gitconfig-personal
 [core]
 	editor = emacs -nw
 	excludesfile = /Users/bjacobel/.gitignore_global
 	precomposeunicode = false
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	hooksPath = /Users/bjacobel/.git_hooks
 [difftool "opendiff"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [mergetool "opendiff"]
@@ -50,7 +52,7 @@
 	st = status
 	br = branch
 	lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	amend = commit -a --amend
+	slam = !GIT_COMMITTER_DATE="$(git show -s --format=%ct HEAD)" git commit --amend --no-edit --date "$(git show -s --format=%ct HEAD)"
 	remind = !sh -c 'git diff-tree --no-commit-id --name-only -r HEAD | more'
 	reopen = !sh -c "true && code $(pwd) $(git diff-tree --no-commit-id --name-only -r HEAD | cat | tr '\n' ' ' | more)"
 	stopen = !sh -c "true && code $(pwd) $(git st -s | cat | tr '\n M' ' ' | more)"
@@ -65,3 +67,8 @@
 	trustExitCode = true
 [diff-so-fancy]
 	stripLeadingSymbols = false
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

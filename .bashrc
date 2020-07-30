@@ -90,7 +90,8 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # Pretty PS1
 function _update_ps1() {
-   export PS1="$(powerline-shell.py --colorize-hostname $?)"
+    export PYTHONIOENCODING='utf8'
+    export PS1="$(powerline-shell.py --colorize-hostname $?)"
 }
 export PROMPT_COMMAND="_update_ps1"
 
@@ -101,7 +102,7 @@ export GOPATH="$HOME/.go"
 export PGHOST=/var/pgsql_socket
 
 # Just the PATH
-export PATH="$PATH:/usr/local/sbin:/usr/local/bin:$GOPATH/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin:/usr/local/mysql/bin:$HOME/.rvm/bin:~/code/scripts"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/opt/curl/bin:$PATH:$HOME/.yarn/bin:$GOPATH/bin:~/code/scripts:$HOME/.jsvu"
 
 # Git, AWS CLI, and bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -113,20 +114,21 @@ complete -C aws_completer aws
 # Add machine-specific env vars to .env file
 export $(cat ~/.env | xargs)
 
-# Set up Travis gem
-[ -f /Users/bjacobel/.travis/travis.sh ] && source /Users/bjacobel/.travis/travis.sh
-
-# Set up RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-export PATH="$HOME/.yarn/bin:$PATH"
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /Users/bjacobel/.config/yarn/global/node_modules/tabtab/.completions/serverless.bash ] && . /Users/bjacobel/.config/yarn/global/node_modules/tabtab/.completions/serverless.bash
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /Users/bjacobel/.config/yarn/global/node_modules/tabtab/.completions/sls.bash ] && . /Users/bjacobel/.config/yarn/global/node_modules/tabtab/.completions/sls.bash
 
 # Put NPM_TOKEN into environment
 export NPM_TOKEN=`cut -d "=" -f 2 < ~/.npmrc`
+
+# Added by nex: https://git.hubteam.com/HubSpot/nex
+. ~/.hubspot/shellrc
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /Users/bjacobel/code/personal/squirrelbot/node_modules/tabtab/.completions/serverless.bash ] && . /Users/bjacobel/code/personal/squirrelbot/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /Users/bjacobel/code/personal/squirrelbot/node_modules/tabtab/.completions/sls.bash ] && . /Users/bjacobel/code/personal/squirrelbot/node_modules/tabtab/.completions/sls.bash
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[ -f /Users/bjacobel/code/personal/squirrelbot/node_modules/tabtab/.completions/slss.bash ] && . /Users/bjacobel/code/personal/squirrelbot/node_modules/tabtab/.completions/slss.bash
+
+eval $(thefuck --alias)

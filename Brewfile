@@ -82,7 +82,6 @@ brew "eddieantonio/eddieantonio/imgcat"
 cask "docker"
 cask "dropbox"
 cask "flux"
-cask "google-chrome"
 cask "google-cloud-sdk"
 cask "insomniax"
 cask "java8"
@@ -94,10 +93,8 @@ mas "1Password 7 - Password Manager", id: 1333542190
 mas "Alfred", id: 405843582
 mas "Bear", id: 1091189122
 mas "BetterSnapTool", id: 417375580
-mas "ColorSlurp", id: 1287239339
 mas "Monosnap", id: 540348655
 mas "Paw", id: 584653203
 mas "Slack", id: 803453959
 mas "Spark", id: 1176895641
 mas "Tweetbot", id: 557168941
-mas "Xcode", id: 497799835
