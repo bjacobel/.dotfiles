@@ -120,15 +120,3 @@ export NPM_TOKEN=`cut -d "=" -f 2 < ~/.npmrc`
 
 # Added by nex: https://git.hubteam.com/HubSpot/nex
 . ~/.hubspot/shellrc
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /Users/bjacobel/code/personal/squirrelbot/node_modules/tabtab/.completions/serverless.bash ] && . /Users/bjacobel/code/personal/squirrelbot/node_modules/tabtab/.completions/serverless.bash
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /Users/bjacobel/code/personal/squirrelbot/node_modules/tabtab/.completions/sls.bash ] && . /Users/bjacobel/code/personal/squirrelbot/node_modules/tabtab/.completions/sls.bash
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[ -f /Users/bjacobel/code/personal/squirrelbot/node_modules/tabtab/.completions/slss.bash ] && . /Users/bjacobel/code/personal/squirrelbot/node_modules/tabtab/.completions/slss.bash
-
-eval $(thefuck --alias)
