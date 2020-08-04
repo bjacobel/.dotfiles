@@ -9,7 +9,6 @@ tap "homebrew/services"
 brew "gdbm"
 brew "sqlite"
 brew "python"
-brew "ansible"
 brew "autoconf"
 brew "automake"
 brew "awscli"
@@ -96,13 +95,12 @@ cask "macdown"
 cask "rstudio"
 cask "spotify"
 cask "visual-studio-code"
-mas "1Password 7", id: 1333542190
+cask "1password"
+cask "Slack"
 mas "Amphetamine", id: 937984704
 mas "Bear", id: 1091189122
 mas "BetterSnapTool", id: 417375580
 mas "Paw", id: 584653203
 mas "Sim Daltonism", id: 693112260
-mas "Slack", id: 803453959
 mas "Spark", id: 1176895641
 mas "Tweetbot", id: 557168941
-mas "Xcode", id: 497799835
