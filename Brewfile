@@ -1,5 +1,3 @@
-tap "caffix/amass"
-tap "homebrew/cask-versions"
 tap "eddieantonio/eddieantonio"
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -96,7 +94,7 @@ cask "rstudio"
 cask "spotify"
 cask "visual-studio-code"
 cask "1password"
-cask "Slack"
+cask "slack"
 mas "Amphetamine", id: 937984704
 mas "Bear", id: 1091189122
 mas "BetterSnapTool", id: 417375580
