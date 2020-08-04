@@ -81,13 +81,6 @@ chflags nohidden ~/Library/
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-# Set up virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/code
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-source /usr/local/bin/virtualenvwrapper.sh
-
 # Pretty PS1
 function _update_ps1() {
     export PYTHONIOENCODING='utf8'
@@ -108,7 +101,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/opt/curl/bin:$PATH:$HOME/
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
-test -f ~/.dotfiles/.git-completion.bash && . $_
+test -f ~/.git-completion.bash && . $_
 complete -C aws_completer aws
 
 # Add machine-specific env vars to .env file
