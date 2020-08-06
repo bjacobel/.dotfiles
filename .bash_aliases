@@ -21,7 +21,6 @@ alias yolo='git add . && git commit -am "YOLO" && git push -f origin master'
 
 # SSH
 alias shh='ssh'
-alias msh='mosh'
 
 # Only works on OSX
 alias folders='du -h -d 1'
@@ -94,13 +93,7 @@ go-init(){
 }
 
 github(){
-    GHURL=$(git remote -v | grep "origin.*fetch" | awk '{print $2}' | sed 's/git@/http:\/\//' | sed 's/com:/com\//' | sed 's/\.git//')
-    REPOROOT=$(git rev-parse --show-toplevel)
-    REPOROOTESC=$(echo $REPOROOT | sed 's/\//\\\//g')
-    CWD=`pwd | sed "s/$(echo $REPOROOTESC)//g"`
-    COMPARE="/compare/$(git rev-parse --abbrev-ref HEAD)?expand=1"
-
-    open $GHURL$COMPARE$CWD
+    open "$(hub compare -u)?expand=1"
 }
 
 alias gh='github'
@@ -190,4 +183,10 @@ indir () {
   pushd $1 1>/dev/null
   ${@:2}
   popd 1>/dev/null
+}
+
+repo () {
+  cd ~/code/$1 2>/dev/null || hub clone HubSpot/$1 ~/code/$1 2>/dev/null || hub clone HubSpotProtected/$1 ~/code/$1 2>/dev/null
+  cd ~/code/$1
+  (&>/dev/null bend yarn &)
 }
