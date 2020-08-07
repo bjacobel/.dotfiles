@@ -351,7 +351,7 @@
   typeset -g POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\uf0aa '
   typeset -g POWERLEVEL9K_VCS_STAGED_ICON='\uf01c '
   typeset -g POWERLEVEL9K_VCS_BEHIND_ICON='\uf0a8 '
-  typeset -g POWERLEVEL9k_VCS_AHEAD_ICON='\uf0a9 ' 
+  typeset -g POWERLEVEL9K_VCS_AHEAD_ICON='\uf0a9 ' 
   typeset -g POWERLEVEL9K_VCS_CONFLICTED_ICON='\uf071 '
 
   # Not currently enabled, but just in case
