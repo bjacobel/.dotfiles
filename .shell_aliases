@@ -1,0 +1,79 @@
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Dumb stuff
+alias fucking='sudo'
+alias yolo='git add . && git commit -am "YOLO" && git push -f origin master'
+
+# SSH
+alias shh='ssh'
+
+# Only works on OSX
+alias folders='du -h -d 1'
+
+# Go development
+alias fresher='fresh -c fresh.conf'
+alias dc="docker-compose"
+
+# I KEEL YOU
+alias origicide='find . -name "*.orig" -delete'
+alias storicide='find . -name "*.DS_Store" -delete'
+alias pycocide='find . -name "*.pyc" -delete'
+
+# Django development with ghetto virtualenvs
+alias activate='source ./bin/activate'
+alias switchenv='deactivate && activate'
+
+# Git shortcuts
+alias st='git st'
+alias commit='git commit'
+alias adderall='git add --all'
+alias add='git add'
+alias timestamp='date +%s | pbcopy'
+alias gh='github'
+
+alias zip='zip -r9'
+
+#Markdown editing
+alias md="open -a MacDown"
+
+# speling is hard
+alias gti='git'
+alias itg='git'
+alias got='git'
+alias fit='git'
+alias tgi='git'
+alias gut='git'
+alias kk='ll'
+
+# intelligent find
+alias ifind='find . -name 2>/dev/null'
+
+# command line pastes client
+alias clbin="curl -F 'clbin=<-' https://clbin.com"
+
+# Serve a folder wihtout apache
+alias serve="python3 -m http.server"
+
+alias wba="NODE_ENV=production yb webpack -p --json > dist/webpack-stats.json && webpack-bundle-analyzer dist/webpack-stats.json dist"
+
+alias xcall="/Applications/xcall.app/Contents/MacOS/xcall -url"
+
+alias dbend=~/code/asset-bender-hubspot/packages/asset-bender-cli/bin/asset-bender
+alias dev-bend=dbend
+
+alias scripts='jq -r ".scripts | to_entries | map(\"\u001b[36m\(.key),\u001b[0m\(.value)\")[]" < package.json |  column -s "," -t'

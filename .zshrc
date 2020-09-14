@@ -46,7 +46,12 @@ fi
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-source ~/.bash_aliases
+if [ -f ~/.shell_aliases ]; then
+    . ~/.shell_aliases
+fi
+if [ -f ~/.shell_funcs ]; then
+    . ~/.shell_funcs
+fi
 
 export $(cat ~/.env | xargs)
 
@@ -57,3 +62,8 @@ export $(cat ~/.env | xargs)
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 bindkey "^X\\x7f" backward-kill-line
+
+unsetopt inc_append_history
+unsetopt share_history
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

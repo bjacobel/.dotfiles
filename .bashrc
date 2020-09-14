@@ -113,3 +113,5 @@ export NPM_TOKEN=`cut -d "=" -f 2 < ~/.npmrc`
 
 # Added by nex: https://git.hubteam.com/HubSpot/nex
 . ~/.hubspot/shellrc
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
