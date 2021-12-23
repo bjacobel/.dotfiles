@@ -15,6 +15,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias dc='cd'
+
 # Dumb stuff
 alias fucking='sudo'
 alias yolo='git add . && git commit -am "YOLO" && git push -f origin master'
@@ -27,7 +29,6 @@ alias folders='du -h -d 1'
 
 # Go development
 alias fresher='fresh -c fresh.conf'
-alias dc="docker-compose"
 
 # I KEEL YOU
 alias origicide='find . -name "*.orig" -delete'
@@ -77,3 +78,5 @@ alias dbend=~/code/asset-bender-hubspot/packages/asset-bender-cli/bin/asset-bend
 alias dev-bend=dbend
 
 alias scripts='jq -r ".scripts | to_entries | map(\"\u001b[36m\(.key),\u001b[0m\(.value)\")[]" < package.json |  column -s "," -t'
+
+alias serve-prod="NODE_ARGS='--max_old_space_size=102048' bend reactor serve --mode=production --update"

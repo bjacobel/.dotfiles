@@ -81,7 +81,7 @@ brkb() {
 }
 
 runtimedeps() {
-  mothership run runtimedep-report --parameters-file <(echo "{\"targets\": [\"$1\"]}")
+  mothership run runtimedep-report --parameters="{\"targets\": [\"$1\"]}"
 }
 
 killi() {
@@ -97,6 +97,46 @@ indir() {
 repo () {
   cd ~/code/$1 2>/dev/null || hub clone HubSpot/$1 ~/code/$1 2>/dev/null || hub clone HubSpotProtected/$1 ~/code/$1 2>/dev/null
   cd ~/code/$1
+  echo -ne "\033]0;"$1"\007"
   (&>/dev/null bend yarn &)
 }
 
+freebase () {
+  rm -rf /tmp/$1 2>/dev/null
+  git clone git@git.hubteam.com:HubSpot/$1 /tmp/$1 2>/dev/null || \
+  git clone git@git.hubteam.com:HubSpotProtected/$1 /tmp/$1 2>/dev/null
+  pushd /tmp/$1 1>/dev/null
+  git fetch origin $2:$2
+  git checkout $2
+  git rebase -i origin/master
+  git push -f --set-upstream origin $2
+  popd 1>/dev/null
+}
+
+bender-repackage-publish () {
+  git clean -fdx
+  bend yarn
+
+  if test -f "node_modules/.bin/bender-repackage"; then
+    echo "using old bender-repackage..."
+    bend yarn bender-repackage build
+    BPM_CONFIG=~/.bpm-config.json bend yarn bender-repackage publish
+  else
+    echo "using new reactor repackage..."
+    BPM_CONFIG=~/.bpm-config.json bend reactor repackage --publish
+  fi
+}
+
+bender-repackage () {
+  git clean -fdx
+  bend yarn
+
+  if test -f "node_modules/.bin/bender-repackage"; then
+    echo "using old bender-repackage..."
+    bend yarn bender-repackage build
+    bend yarn bender-repackage install
+  else
+    echo "using new reactor repackage..."
+    bend reactor repackage
+  fi
+}

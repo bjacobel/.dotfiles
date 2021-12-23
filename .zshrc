@@ -23,13 +23,18 @@ DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx npm brew)
+plugins=(
+    git
+    macos
+    npm
+    brew
+)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# Set CLICOLOR if you want Ansi Colors in iTerm2 
+# Set CLICOLOR if you want Ansi Colors in iTerm2
 export CLICOLOR=1
 
 # Set colors to match iTerm2 Terminal Colors
@@ -67,3 +72,9 @@ unsetopt inc_append_history
 unsetopt share_history
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+# nr1 autocomplete setup
+NR1_AC_ZSH_SETUP_PATH=/Users/bjacobel/Library/Caches/newrelic-cli/autocomplete/zsh_setup && test -f $NR1_AC_ZSH_SETUP_PATH && source $NR1_AC_ZSH_SETUP_PATH;
