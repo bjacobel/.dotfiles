@@ -14,7 +14,7 @@ coverage/*
 .tags_swap
 .jekyll-metadata
 jsconfig.json
-.vscode
+.vscode*
 yarn-error.log
 
 TESTS.xml
