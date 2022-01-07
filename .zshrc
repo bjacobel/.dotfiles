@@ -61,7 +61,7 @@ fi
 export $(cat ~/.env | xargs)
 
 # Added by nex: https://git.hubteam.com/HubSpot/nex
-. ~/.hubspot/shellrc
+[ -f ~/.hubspot/shellrc ] && . ~/.hubspot/shellrc
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
