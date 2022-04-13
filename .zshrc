@@ -28,6 +28,8 @@ plugins=(
     macos
     npm
     brew
+    virtualenv
+    virtualenvwrapper
 )
 
 source $ZSH/oh-my-zsh.sh

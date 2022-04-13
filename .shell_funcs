@@ -140,3 +140,7 @@ bender-repackage () {
     bend reactor repackage
   fi
 }
+
+ansible-decrypt () {
+  yq e $1 $2 | tr -d ' ' | ansible-vault decrypt --vault-password-file vault && echo
+}
