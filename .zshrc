@@ -80,3 +80,5 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # nr1 autocomplete setup
 NR1_AC_ZSH_SETUP_PATH=/Users/bjacobel/Library/Caches/newrelic-cli/autocomplete/zsh_setup && test -f $NR1_AC_ZSH_SETUP_PATH && source $NR1_AC_ZSH_SETUP_PATH;
+
+export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
